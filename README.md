@@ -12,7 +12,6 @@ Trap for Drosera node, which is detecting exact amount of incoming tokens and if
    - Compile the contract with drosera build.
    - Apply the configuration with drosera apply.
    - Start your operator and monitor the dashboard/logs.
-
 When the target wallet receives 0.0000777 ETH, the trap will trigger and show a dark green block in the dashboard.
 
 ## LogAlertReceiver
