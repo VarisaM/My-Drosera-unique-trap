@@ -34,7 +34,7 @@ This project is licensed under the MIT License.
 
 ## Trap Code
 
-Solidity
+```Solidity
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -65,6 +65,7 @@ contract IncomingTransferTrap is ITrap {
         return (false, "");
     }
 }
+```
 ## LogAlertReceiver Code
 
 ```solidity
@@ -73,7 +74,7 @@ pragma solidity ^0.8.20;
 
 contract LogAlertReceiver {
     event Alert(string message);
-
+```
     // This function calling generates an event
     function logAnomaly(string calldata message) external pure
  {
