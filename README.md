@@ -7,6 +7,12 @@ Trap for Drosera node, which is detecting exact amount of incoming tokens and if
 - shouldRespond() compares the latest balance with the previous one.  
 - If the balance increased by 0.0000777 ETH, the trap returns true.
 
+## This trap could be used for:
+
+- For Covert signaling;  Someone sends 0.0000777 ETH to trigger an action
+- Monitoring known "magic amounts"; You detect specific bot or attacker behavior by the exact transfer
+- Payment verification; someone must pay exactly 0.0000777 ETH to register/verify (e.g., anti-spam)
+
 ## Deployment
    - Add the contract to your drosera.toml configuration under [[traps]].
    - Compile the contract with drosera build.
@@ -45,7 +51,7 @@ interface ITrap {
 }
 
 contract IncomingTransferTrap is ITrap {
-    address public constant target = 0xYourWallet; // Wallet to monitor
+    address public constant target = 0xB8cbD401d06fcd2a184740527843999A01680CE0; // Wallet to monitor
     uint256 public constant minAmount = 0.0000777 ether; // Threshold for incoming transfer, you can set your own value
 
     function collect() external view override returns (bytes memory) {
@@ -76,7 +82,7 @@ contract LogAlertReceiver {
     event Alert(string message);
 ```
     // This function calling generates an event
-    function logAnomaly(string calldata message) external pure
+    function logAnomaly(string calldata message) external
  {
    emit Alert(message);
     }
